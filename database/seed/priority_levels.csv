@@ -1,0 +1,4 @@
+priority,tardiness_weight
+NORMAL,1
+HIGH,3
+URGENT,10

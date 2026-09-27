@@ -1,0 +1,42 @@
+name: byof-agent-tests
+
+services:
+  test-postgres:
+    image: postgres:18.3
+    environment:
+      POSTGRES_PASSWORD: isolated-test-admin
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    tmpfs:
+      - /var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  checks:
+    image: byof-agent-python:tests
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      target: tests
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/.runtime:uid=10001,gid=10001,mode=0700
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      BOOTSTRAP_DATABASE_URL: postgresql+psycopg://postgres:isolated-test-admin@test-postgres:5432/postgres
+      MIGRATION_DATABASE_URL: postgresql+psycopg://byof_owner:isolated-test-owner@test-postgres:5432/byof_test
+      DATABASE_URL: postgresql+psycopg://byof_app:isolated-test-app@test-postgres:5432/byof_test
+      FACTORY_DATABASE_URL: postgresql+psycopg://factory_sim_app:isolated-test-sim@test-postgres:5432/byof_test
+      TEST_MIGRATION_DATABASE_URL: postgresql+psycopg://byof_owner:isolated-test-owner@test-postgres:5432/byof_test
+      TEST_DATABASE_URL: postgresql+psycopg://byof_app:isolated-test-app@test-postgres:5432/byof_test
+      TEST_FACTORY_DATABASE_URL: postgresql+psycopg://factory_sim_app:isolated-test-sim@test-postgres:5432/byof_test
+    depends_on:
+      test-postgres:
+        condition: service_healthy

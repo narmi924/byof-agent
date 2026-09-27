@@ -1,0 +1,2 @@
+settings_id,domain_version,display_timezone,snapshot_clock,horizon_start,horizon_end,freeze_window_min,first_changeover_min,same_sku_changeover_min,different_sku_changeover_min,workers_per_operation,initial_wip_present,initial_published_plan_present
+BASELINE,V1.6,Asia/Singapore,2026-09-14T00:30:00Z,2026-09-14T00:30:00Z,2026-09-18T09:30:00Z,60,0,1,5,1,0,0

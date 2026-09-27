@@ -1,0 +1,248 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "Baseline files match their pinned SHA256",
+      "passed": true
+    },
+    {
+      "check": "schema.sql creates SQLite database with foreign keys enabled",
+      "passed": true
+    },
+    {
+      "check": "resource_types baseline row count",
+      "passed": true
+    },
+    {
+      "check": "skills baseline row count",
+      "passed": true
+    },
+    {
+      "check": "operation_types baseline row count",
+      "passed": true
+    },
+    {
+      "check": "priority_levels baseline row count",
+      "passed": true
+    },
+    {
+      "check": "products baseline row count",
+      "passed": true
+    },
+    {
+      "check": "materials baseline row count",
+      "passed": true
+    },
+    {
+      "check": "bom_items baseline row count",
+      "passed": true
+    },
+    {
+      "check": "routing_steps baseline row count",
+      "passed": true
+    },
+    {
+      "check": "resources baseline row count",
+      "passed": true
+    },
+    {
+      "check": "resource_operations baseline row count",
+      "passed": true
+    },
+    {
+      "check": "workers baseline row count",
+      "passed": true
+    },
+    {
+      "check": "worker_skills baseline row count",
+      "passed": true
+    },
+    {
+      "check": "sales_orders baseline row count",
+      "passed": true
+    },
+    {
+      "check": "inventory baseline row count",
+      "passed": true
+    },
+    {
+      "check": "material_inbounds baseline row count",
+      "passed": true
+    },
+    {
+      "check": "production_batches baseline row count",
+      "passed": true
+    },
+    {
+      "check": "operations baseline row count",
+      "passed": true
+    },
+    {
+      "check": "planning_settings baseline row count",
+      "passed": true
+    },
+    {
+      "check": "calendar_periods baseline row count",
+      "passed": true
+    },
+    {
+      "check": "policy_rules baseline row count",
+      "passed": true
+    },
+    {
+      "check": "CSV types, PK, FK, NOT NULL and CHECK constraints",
+      "passed": true
+    },
+    {
+      "check": "Products use the fixed batch size",
+      "passed": true
+    },
+    {
+      "check": "Orders are confirmed initial version",
+      "passed": true
+    },
+    {
+      "check": "Opening inventory is unreserved; no incoming merged",
+      "passed": true
+    },
+    {
+      "check": "Inbounds are confirmed records",
+      "passed": true
+    },
+    {
+      "check": "Resources and workers start available",
+      "passed": true
+    },
+    {
+      "check": "Priority weights",
+      "passed": true
+    },
+    {
+      "check": "SKU-specific BOM components and consumption stages",
+      "passed": true
+    },
+    {
+      "check": "All 25 material categories and units are correct",
+      "passed": true
+    },
+    {
+      "check": "Each material has one opening inventory record",
+      "passed": true
+    },
+    {
+      "check": "BRG-6202-2RS1 complete eight-step dependency order",
+      "passed": true
+    },
+    {
+      "check": "BRG-6202-2RS1 routing skill/resource/version",
+      "passed": true
+    },
+    {
+      "check": "BRG-6203-2RS1 complete eight-step dependency order",
+      "passed": true
+    },
+    {
+      "check": "BRG-6203-2RS1 routing skill/resource/version",
+      "passed": true
+    },
+    {
+      "check": "BRG-6204-2RS1 complete eight-step dependency order",
+      "passed": true
+    },
+    {
+      "check": "BRG-6204-2RS1 routing skill/resource/version",
+      "passed": true
+    },
+    {
+      "check": "BRG-6205-2RS1 complete eight-step dependency order",
+      "passed": true
+    },
+    {
+      "check": "BRG-6205-2RS1 routing skill/resource/version",
+      "passed": true
+    },
+    {
+      "check": "All routing requirements have available qualified resources and workers",
+      "passed": true
+    },
+    {
+      "check": "SO-001 exact deterministic split and quantity conservation",
+      "passed": true
+    },
+    {
+      "check": "SO-002 exact deterministic split and quantity conservation",
+      "passed": true
+    },
+    {
+      "check": "SO-003 exact deterministic split and quantity conservation",
+      "passed": true
+    },
+    {
+      "check": "SO-004 exact deterministic split and quantity conservation",
+      "passed": true
+    },
+    {
+      "check": "SO-005 exact deterministic split and quantity conservation",
+      "passed": true
+    },
+    {
+      "check": "SO-006 exact deterministic split and quantity conservation",
+      "passed": true
+    },
+    {
+      "check": "Initial batches and operations all unstarted",
+      "passed": true
+    },
+    {
+      "check": "Each batch has exactly eight routing-duration operations",
+      "passed": true
+    },
+    {
+      "check": "108 batches / 864 operations / 5400 units",
+      "passed": true
+    },
+    {
+      "check": "Each batch has 66 minutes excluding changeover",
+      "passed": true
+    },
+    {
+      "check": "Planning horizon and freeze/changeover parameters",
+      "passed": true
+    },
+    {
+      "check": "Five-day shift, lunch and conditional overtime windows",
+      "passed": true
+    },
+    {
+      "check": "No scheduling assignment fields in operations",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "row_counts": {
+    "resource_types": 7,
+    "skills": 5,
+    "operation_types": 8,
+    "priority_levels": 3,
+    "products": 4,
+    "materials": 25,
+    "bom_items": 28,
+    "routing_steps": 32,
+    "resources": 8,
+    "resource_operations": 10,
+    "workers": 8,
+    "worker_skills": 11,
+    "sales_orders": 6,
+    "inventory": 25,
+    "material_inbounds": 16,
+    "production_batches": 108,
+    "operations": 864,
+    "planning_settings": 1,
+    "calendar_periods": 20,
+    "policy_rules": 14
+  },
+  "source_sha256": "82572ed55b1adeecd52d52dd9dd40e3ff8851c7c13bd5ee9b0a63fcf2453bb57",
+  "database_engine_tested": "SQLite (in-memory)",
+  "postgresql_execution_tested": false,
+  "solver_run": false
+}

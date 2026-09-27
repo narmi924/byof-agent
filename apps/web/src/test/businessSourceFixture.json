@@ -1,0 +1,4570 @@
+{
+  "provenance": "Generated from packages.domain.business_scenarios.business_scenarios; source order.change cancels all unstarted orders; packages.planning.solver.solve returns the empty candidate. Shared source fields are factored out without changing their values.",
+  "common": {
+    "profile": {
+      "schema_version": "byof.factory-profile/1",
+      "profile_id": "skf-assembly-reference",
+      "version": "V1.6",
+      "timezone": "Asia/Singapore",
+      "activation_state": "DRAFT",
+      "evidence_mode": "public_reference_plus_synthetic_operations",
+      "source_digest": "82572ed55b1adeecd52d52dd9dd40e3ff8851c7c13bd5ee9b0a63fcf2453bb57",
+      "required_capabilities": [
+        "acyclic_operation_precedence",
+        "alternative_unary_resource",
+        "fixed_lot_exact_split",
+        "freeze_and_confirmed_wip",
+        "full_kit_before_first_operation",
+        "independent_schedule_check",
+        "one_qualified_worker_full_duration",
+        "per_operation_consumption",
+        "time_phased_supply",
+        "versioned_human_approval"
+      ],
+      "products": [
+        {
+          "product_id": "BRG-6202-2RS1",
+          "name": "6202-2RS1",
+          "batch_size": 50,
+          "route_version": "V1.6"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "name": "6203-2RS1",
+          "batch_size": 50,
+          "route_version": "V1.6"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "name": "6204-2RS1",
+          "batch_size": 50,
+          "route_version": "V1.6"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "name": "6205-2RS1",
+          "batch_size": 50,
+          "route_version": "V1.6"
+        }
+      ],
+      "materials": [
+        {
+          "material_id": "IR-6202",
+          "name": "Inner Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "OR-6202",
+          "name": "Outer Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BALLSET-6202",
+          "name": "Ball Set",
+          "unit": "SET"
+        },
+        {
+          "material_id": "CAGE-6202",
+          "name": "Cage",
+          "unit": "SET"
+        },
+        {
+          "material_id": "SEAL-RS1-6202",
+          "name": "RS1 Seal",
+          "unit": "EA"
+        },
+        {
+          "material_id": "GREASE-G01",
+          "name": "Grease Fill Unit",
+          "unit": "GFU"
+        },
+        {
+          "material_id": "BOX-6202",
+          "name": "Package",
+          "unit": "EA"
+        },
+        {
+          "material_id": "IR-6203",
+          "name": "Inner Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "OR-6203",
+          "name": "Outer Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BALLSET-6203",
+          "name": "Ball Set",
+          "unit": "SET"
+        },
+        {
+          "material_id": "CAGE-6203",
+          "name": "Cage",
+          "unit": "SET"
+        },
+        {
+          "material_id": "SEAL-RS1-6203",
+          "name": "RS1 Seal",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BOX-6203",
+          "name": "Package",
+          "unit": "EA"
+        },
+        {
+          "material_id": "IR-6204",
+          "name": "Inner Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "OR-6204",
+          "name": "Outer Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BALLSET-6204",
+          "name": "Ball Set",
+          "unit": "SET"
+        },
+        {
+          "material_id": "CAGE-6204",
+          "name": "Cage",
+          "unit": "SET"
+        },
+        {
+          "material_id": "SEAL-RS1-6204",
+          "name": "RS1 Seal",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BOX-6204",
+          "name": "Package",
+          "unit": "EA"
+        },
+        {
+          "material_id": "IR-6205",
+          "name": "Inner Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "OR-6205",
+          "name": "Outer Ring",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BALLSET-6205",
+          "name": "Ball Set",
+          "unit": "SET"
+        },
+        {
+          "material_id": "CAGE-6205",
+          "name": "Cage",
+          "unit": "SET"
+        },
+        {
+          "material_id": "SEAL-RS1-6205",
+          "name": "RS1 Seal",
+          "unit": "EA"
+        },
+        {
+          "material_id": "BOX-6205",
+          "name": "Package",
+          "unit": "EA"
+        }
+      ],
+      "bom": [
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "IR-6202",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "OR-6202",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "BALLSET-6202",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "CAGE-6202",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP30"
+        },
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "SEAL-RS1-6202",
+          "quantity_per_unit": 2,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP50"
+        },
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "GREASE-G01",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP40"
+        },
+        {
+          "product_id": "BRG-6202-2RS1",
+          "material_id": "BOX-6202",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6202-2RS1-V1.6-OP80"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "IR-6203",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "OR-6203",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "BALLSET-6203",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "CAGE-6203",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP30"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "SEAL-RS1-6203",
+          "quantity_per_unit": 2,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP50"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "GREASE-G01",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP40"
+        },
+        {
+          "product_id": "BRG-6203-2RS1",
+          "material_id": "BOX-6203",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6203-2RS1-V1.6-OP80"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "IR-6204",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "OR-6204",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "BALLSET-6204",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "CAGE-6204",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP30"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "SEAL-RS1-6204",
+          "quantity_per_unit": 2,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP50"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "GREASE-G01",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP40"
+        },
+        {
+          "product_id": "BRG-6204-2RS1",
+          "material_id": "BOX-6204",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6204-2RS1-V1.6-OP80"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "IR-6205",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "OR-6205",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "BALLSET-6205",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP20"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "CAGE-6205",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP30"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "SEAL-RS1-6205",
+          "quantity_per_unit": 2,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP50"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "GREASE-G01",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP40"
+        },
+        {
+          "product_id": "BRG-6205-2RS1",
+          "material_id": "BOX-6205",
+          "quantity_per_unit": 1,
+          "consume_step_id": "BRG-6205-2RS1-V1.6-OP80"
+        }
+      ],
+      "routes": [
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP10",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP10",
+          "name": "物料配套与装配前准备",
+          "predecessors": [],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "KITTING",
+          "skill": "PRE_ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP20",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP20",
+          "name": "套圈与滚动体装配",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP10"
+          ],
+          "setup_min": 4,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP30",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP30",
+          "name": "保持架装配",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP20"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP60",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP60",
+          "name": "装脂密封前检查",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP30"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FUNCTION_TEST",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP40",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP40",
+          "name": "注脂",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP60"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "LUBRICATION",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP50",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP50",
+          "name": "密封圈安装",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP40"
+          ],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "SEAL_PRESS",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP70",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP70",
+          "name": "最终检验与放行",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP50"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FINAL_INSPECTION",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6202-2RS1-V1.6-OP80",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP80",
+          "name": "打标与包装",
+          "predecessors": [
+            "BRG-6202-2RS1-V1.6-OP70"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "PACKAGING",
+          "skill": "PACKAGING",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP10",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP10",
+          "name": "物料配套与装配前准备",
+          "predecessors": [],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "KITTING",
+          "skill": "PRE_ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP20",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP20",
+          "name": "套圈与滚动体装配",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP10"
+          ],
+          "setup_min": 4,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP30",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP30",
+          "name": "保持架装配",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP20"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP60",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP60",
+          "name": "装脂密封前检查",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP30"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FUNCTION_TEST",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP40",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP40",
+          "name": "注脂",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP60"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "LUBRICATION",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP50",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP50",
+          "name": "密封圈安装",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP40"
+          ],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "SEAL_PRESS",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP70",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP70",
+          "name": "最终检验与放行",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP50"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FINAL_INSPECTION",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6203-2RS1-V1.6-OP80",
+          "product_id": "BRG-6203-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP80",
+          "name": "打标与包装",
+          "predecessors": [
+            "BRG-6203-2RS1-V1.6-OP70"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "PACKAGING",
+          "skill": "PACKAGING",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP10",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP10",
+          "name": "物料配套与装配前准备",
+          "predecessors": [],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "KITTING",
+          "skill": "PRE_ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP20",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP20",
+          "name": "套圈与滚动体装配",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP10"
+          ],
+          "setup_min": 4,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP30",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP30",
+          "name": "保持架装配",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP20"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP60",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP60",
+          "name": "装脂密封前检查",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP30"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FUNCTION_TEST",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP40",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP40",
+          "name": "注脂",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP60"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "LUBRICATION",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP50",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP50",
+          "name": "密封圈安装",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP40"
+          ],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "SEAL_PRESS",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP70",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP70",
+          "name": "最终检验与放行",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP50"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FINAL_INSPECTION",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6204-2RS1-V1.6-OP80",
+          "product_id": "BRG-6204-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP80",
+          "name": "打标与包装",
+          "predecessors": [
+            "BRG-6204-2RS1-V1.6-OP70"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "PACKAGING",
+          "skill": "PACKAGING",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP10",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP10",
+          "name": "物料配套与装配前准备",
+          "predecessors": [],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "KITTING",
+          "skill": "PRE_ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP20",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP20",
+          "name": "套圈与滚动体装配",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP10"
+          ],
+          "setup_min": 4,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP30",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP30",
+          "name": "保持架装配",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP20"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "ASSEMBLY_CELL",
+          "skill": "ASSEMBLY",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP60",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP60",
+          "name": "装脂密封前检查",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP30"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FUNCTION_TEST",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP40",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP40",
+          "name": "注脂",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP60"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 4,
+          "resource_type": "LUBRICATION",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP50",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP50",
+          "name": "密封圈安装",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP40"
+          ],
+          "setup_min": 3,
+          "cycle_sec_per_unit": 5,
+          "resource_type": "SEAL_PRESS",
+          "skill": "LUBE_SEAL",
+          "quality_gate": false,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP70",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP70",
+          "name": "最终检验与放行",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP50"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "FINAL_INSPECTION",
+          "skill": "INSPECTION",
+          "quality_gate": true,
+          "quality_threshold": null
+        },
+        {
+          "step_id": "BRG-6205-2RS1-V1.6-OP80",
+          "product_id": "BRG-6205-2RS1",
+          "route_version": "V1.6",
+          "operation_code": "OP80",
+          "name": "打标与包装",
+          "predecessors": [
+            "BRG-6205-2RS1-V1.6-OP70"
+          ],
+          "setup_min": 2,
+          "cycle_sec_per_unit": 8,
+          "resource_type": "PACKAGING",
+          "skill": "PACKAGING",
+          "quality_gate": false,
+          "quality_threshold": null
+        }
+      ],
+      "policy": {
+        "policy_version": "skf-v1.6-default",
+        "full_kit_before_first_operation": true,
+        "workers_per_operation": 1,
+        "first_changeover_min": 0,
+        "same_product_changeover_min": 1,
+        "different_product_changeover_min": 5,
+        "freeze_window_min": 60,
+        "overtime_cost_per_minute": null,
+        "progress_revalidation_enabled": false
+      }
+    },
+    "resources": [
+      {
+        "resource_id": "KIT-01",
+        "resource_type": "KITTING",
+        "operation_codes": [
+          "OP10"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "ASMCELL-A",
+        "resource_type": "ASSEMBLY_CELL",
+        "operation_codes": [
+          "OP20",
+          "OP30"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "ASMCELL-B",
+        "resource_type": "ASSEMBLY_CELL",
+        "operation_codes": [
+          "OP20",
+          "OP30"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "LUBE-01",
+        "resource_type": "LUBRICATION",
+        "operation_codes": [
+          "OP40"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "SEAL-01",
+        "resource_type": "SEAL_PRESS",
+        "operation_codes": [
+          "OP50"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "TEST-01",
+        "resource_type": "FUNCTION_TEST",
+        "operation_codes": [
+          "OP60"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "FINS-01",
+        "resource_type": "FINAL_INSPECTION",
+        "operation_codes": [
+          "OP70"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      },
+      {
+        "resource_id": "PACK-01",
+        "resource_type": "PACKAGING",
+        "operation_codes": [
+          "OP80"
+        ],
+        "capacity": 1,
+        "status": "AVAILABLE",
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1,
+        "last_operation_id": null,
+        "last_product_id": null
+      }
+    ],
+    "workers": [
+      {
+        "worker_id": "W01",
+        "skills": [
+          "PRE_ASSEMBLY",
+          "ASSEMBLY"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": true,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W02",
+        "skills": [
+          "ASSEMBLY"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": true,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W03",
+        "skills": [
+          "ASSEMBLY",
+          "LUBE_SEAL"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": false,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W04",
+        "skills": [
+          "LUBE_SEAL"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": true,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W05",
+        "skills": [
+          "INSPECTION"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": true,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W06",
+        "skills": [
+          "INSPECTION"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": false,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W07",
+        "skills": [
+          "PACKAGING"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": true,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      },
+      {
+        "worker_id": "W08",
+        "skills": [
+          "PRE_ASSEMBLY",
+          "PACKAGING"
+        ],
+        "status": "AVAILABLE",
+        "overtime_available": true,
+        "calendar": [
+          {
+            "start_at": "2026-09-14T00:30:00Z",
+            "end_at": "2026-09-14T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T05:00:00Z",
+            "end_at": "2026-09-14T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-14T09:30:00Z",
+            "end_at": "2026-09-14T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-15T00:30:00Z",
+            "end_at": "2026-09-15T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T05:00:00Z",
+            "end_at": "2026-09-15T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-15T09:30:00Z",
+            "end_at": "2026-09-15T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-16T00:30:00Z",
+            "end_at": "2026-09-16T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T05:00:00Z",
+            "end_at": "2026-09-16T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-16T09:30:00Z",
+            "end_at": "2026-09-16T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-17T00:30:00Z",
+            "end_at": "2026-09-17T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T05:00:00Z",
+            "end_at": "2026-09-17T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-17T09:30:00Z",
+            "end_at": "2026-09-17T11:30:00Z",
+            "kind": "OVERTIME"
+          },
+          {
+            "start_at": "2026-09-18T00:30:00Z",
+            "end_at": "2026-09-18T04:00:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T05:00:00Z",
+            "end_at": "2026-09-18T09:30:00Z",
+            "kind": "NORMAL"
+          },
+          {
+            "start_at": "2026-09-18T09:30:00Z",
+            "end_at": "2026-09-18T11:30:00Z",
+            "kind": "OVERTIME"
+          }
+        ],
+        "unavailable": [],
+        "version": 1
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "schema_version": "byof.snapshot/3",
+      "snapshot_id": "business-demand-initial-snapshot",
+      "factory_id": "business-demand",
+      "run_id": "business-demand-initial-run",
+      "snapshot_clock": "2026-09-14T00:30:00Z",
+      "horizon": {
+        "start_at": "2026-09-14T00:30:00Z",
+        "end_at": "2026-09-18T09:30:00Z"
+      },
+      "source": {
+        "source_system": "skf-static-csv",
+        "source_revision": "1",
+        "cursor": null,
+        "observed_at": "2026-09-14T00:30:00Z",
+        "effective_at": "2026-09-14T00:30:00Z",
+        "complete": true,
+        "consistency": "ATOMIC_SNAPSHOT",
+        "freshness": "CURRENT",
+        "ownership": "simulator_fact",
+        "evidence_digest": "73529f9f67928a0ea2f2fe9ce94556a9c9407baae5896cf91ce235ac127bf591"
+      },
+      "planning_revision": 1,
+      "scope_version": 1,
+      "active_plan_version": null,
+      "active_plan_hash": null,
+      "orders": [
+        {
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "quantity": 150,
+          "due_at": "2026-09-14T09:30:00Z",
+          "priority_weight": 1,
+          "hard_deadline": false,
+          "version": 1,
+          "split_revision": 1,
+          "status": "CONFIRMED"
+        }
+      ],
+      "inventory": [
+        {
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "on_hand": 2400,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6202",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "on_hand": 2000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6203",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "on_hand": 1600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6204",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6205",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6205",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "on_hand": 4200,
+          "reserved": 0,
+          "version": 1
+        }
+      ],
+      "receipts": [
+        {
+          "receipt_id": "INB-001",
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-002",
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-003",
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-004",
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-005",
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "quantity": 1200,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-006",
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-007",
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-008",
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-009",
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-010",
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "quantity": 1600,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-011",
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-012",
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-013",
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-014",
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-015",
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-016",
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "quantity": 1500,
+          "eta": "2026-09-16T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        }
+      ],
+      "actuals": [],
+      "reservations": [],
+      "business_terms": {
+        "version": "synthetic-business-options-v1",
+        "evidence_mode": "synthetic",
+        "delivery_rules": [
+          {
+            "product_id": "BRG-6202-2RS1",
+            "partial_delivery_allowed": true,
+            "minimum_partial_quantity": 50,
+            "max_deliveries": 2
+          }
+        ],
+        "expedite_quotes": []
+      },
+      "content_hash": "72177dae649a7fd4beba07f5037aa2ea1ba3c4f1384d98b0b1d131f3ffccd4d9"
+    },
+    {
+      "schema_version": "byof.snapshot/3",
+      "snapshot_id": "business-urgent-initial-snapshot",
+      "factory_id": "business-urgent",
+      "run_id": "business-urgent-initial-run",
+      "snapshot_clock": "2026-09-14T00:30:00Z",
+      "horizon": {
+        "start_at": "2026-09-14T00:30:00Z",
+        "end_at": "2026-09-18T09:30:00Z"
+      },
+      "source": {
+        "source_system": "skf-static-csv",
+        "source_revision": "1",
+        "cursor": null,
+        "observed_at": "2026-09-14T00:30:00Z",
+        "effective_at": "2026-09-14T00:30:00Z",
+        "complete": true,
+        "consistency": "ATOMIC_SNAPSHOT",
+        "freshness": "CURRENT",
+        "ownership": "simulator_fact",
+        "evidence_digest": "73529f9f67928a0ea2f2fe9ce94556a9c9407baae5896cf91ce235ac127bf591"
+      },
+      "planning_revision": 1,
+      "scope_version": 1,
+      "active_plan_version": null,
+      "active_plan_hash": null,
+      "orders": [
+        {
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "quantity": 50,
+          "due_at": "2026-09-14T09:30:00Z",
+          "priority_weight": 1,
+          "hard_deadline": false,
+          "version": 1,
+          "split_revision": 1,
+          "status": "CONFIRMED"
+        }
+      ],
+      "inventory": [
+        {
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "on_hand": 2400,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6202",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "on_hand": 2000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6203",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "on_hand": 1600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6204",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6205",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6205",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "on_hand": 4200,
+          "reserved": 0,
+          "version": 1
+        }
+      ],
+      "receipts": [
+        {
+          "receipt_id": "INB-001",
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-002",
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-003",
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-004",
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-005",
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "quantity": 1200,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-006",
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-007",
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-008",
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-009",
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-010",
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "quantity": 1600,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-011",
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-012",
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-013",
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-014",
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-015",
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-016",
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "quantity": 1500,
+          "eta": "2026-09-16T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        }
+      ],
+      "actuals": [],
+      "reservations": [],
+      "business_terms": {
+        "version": "synthetic-business-options-v1",
+        "evidence_mode": "synthetic",
+        "delivery_rules": [
+          {
+            "product_id": "BRG-6202-2RS1",
+            "partial_delivery_allowed": true,
+            "minimum_partial_quantity": 50,
+            "max_deliveries": 2
+          }
+        ],
+        "expedite_quotes": []
+      },
+      "content_hash": "3326fb10e7e8def5e176de3a9fefd77318d9d5a4751e14a40d18ee99070381b0"
+    },
+    {
+      "schema_version": "byof.snapshot/3",
+      "snapshot_id": "business-material-initial-snapshot",
+      "factory_id": "business-material",
+      "run_id": "business-material-initial-run",
+      "snapshot_clock": "2026-09-14T00:30:00Z",
+      "horizon": {
+        "start_at": "2026-09-14T00:30:00Z",
+        "end_at": "2026-09-18T09:30:00Z"
+      },
+      "source": {
+        "source_system": "skf-static-csv",
+        "source_revision": "1",
+        "cursor": null,
+        "observed_at": "2026-09-14T00:30:00Z",
+        "effective_at": "2026-09-14T00:30:00Z",
+        "complete": true,
+        "consistency": "ATOMIC_SNAPSHOT",
+        "freshness": "CURRENT",
+        "ownership": "simulator_fact",
+        "evidence_digest": "73529f9f67928a0ea2f2fe9ce94556a9c9407baae5896cf91ce235ac127bf591"
+      },
+      "planning_revision": 1,
+      "scope_version": 1,
+      "active_plan_version": null,
+      "active_plan_hash": null,
+      "orders": [
+        {
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "quantity": 50,
+          "due_at": "2026-09-14T01:50:00Z",
+          "priority_weight": 1,
+          "hard_deadline": false,
+          "version": 1,
+          "split_revision": 1,
+          "status": "CONFIRMED"
+        }
+      ],
+      "inventory": [
+        {
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "on_hand": 0,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "on_hand": 2400,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6202",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "on_hand": 2000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6203",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "on_hand": 1600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6204",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6205",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6205",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "on_hand": 4200,
+          "reserved": 0,
+          "version": 1
+        }
+      ],
+      "receipts": [
+        {
+          "receipt_id": "INB-002",
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-003",
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-004",
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-005",
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "quantity": 1200,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-006",
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-007",
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-008",
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-009",
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-010",
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "quantity": 1600,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-011",
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-012",
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-013",
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-014",
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-015",
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-016",
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "quantity": 1500,
+          "eta": "2026-09-16T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "BUSINESS-IR6202-INBOUND",
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "quantity": 50,
+          "eta": "2026-09-14T02:10:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        }
+      ],
+      "actuals": [],
+      "reservations": [],
+      "business_terms": {
+        "version": "synthetic-business-options-v1",
+        "evidence_mode": "synthetic",
+        "delivery_rules": [
+          {
+            "product_id": "BRG-6202-2RS1",
+            "partial_delivery_allowed": true,
+            "minimum_partial_quantity": 50,
+            "max_deliveries": 2
+          }
+        ],
+        "expedite_quotes": [
+          {
+            "quote_id": "BUSINESS-IR6202-EXPEDITE",
+            "receipt_id": "BUSINESS-IR6202-INBOUND",
+            "receipt_version": 1,
+            "original_eta": "2026-09-14T02:10:00Z",
+            "expedited_eta": "2026-09-14T00:40:00Z",
+            "quantity": 50,
+            "valid_until": "2026-09-14T01:30:00Z",
+            "source_reference": "business-material:synthetic-quote-v1",
+            "evidence_mode": "synthetic",
+            "cost_minor": 1250,
+            "currency": "CNY"
+          }
+        ]
+      },
+      "content_hash": "baed096a778cac997f9d7ad864c901a1c277a21b9ddc9bc30da64b3595efa98c"
+    },
+    {
+      "schema_version": "byof.snapshot/3",
+      "snapshot_id": "business-demand-initial-run-2",
+      "factory_id": "business-demand",
+      "run_id": "business-demand-initial-run",
+      "snapshot_clock": "2026-09-14T00:30:00Z",
+      "horizon": {
+        "start_at": "2026-09-14T00:30:00Z",
+        "end_at": "2026-09-18T09:30:00Z"
+      },
+      "source": {
+        "source_system": "skf-static-csv",
+        "source_revision": "2",
+        "cursor": "2",
+        "observed_at": "2026-09-23T11:36:01.607272Z",
+        "effective_at": "2026-09-14T00:30:00Z",
+        "complete": true,
+        "consistency": "ATOMIC_SNAPSHOT",
+        "freshness": "CURRENT",
+        "ownership": "simulator_fact",
+        "evidence_digest": "73529f9f67928a0ea2f2fe9ce94556a9c9407baae5896cf91ce235ac127bf591"
+      },
+      "planning_revision": 2,
+      "scope_version": 2,
+      "active_plan_version": null,
+      "active_plan_hash": null,
+      "orders": [
+        {
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "quantity": 0,
+          "due_at": "2026-09-14T09:30:00Z",
+          "priority_weight": 1,
+          "hard_deadline": false,
+          "version": 2,
+          "split_revision": 1,
+          "status": "CANCELLED"
+        }
+      ],
+      "inventory": [
+        {
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "on_hand": 2400,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6202",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "on_hand": 1000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "on_hand": 2000,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6203",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "on_hand": 800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "on_hand": 1600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6204",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "IR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "OR-6205",
+          "unit": "EA",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BALLSET-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "CAGE-6205",
+          "unit": "SET",
+          "on_hand": 600,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "SEAL-RS1-6205",
+          "unit": "EA",
+          "on_hand": 1200,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "BOX-6205",
+          "unit": "EA",
+          "on_hand": 1800,
+          "reserved": 0,
+          "version": 1
+        },
+        {
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "on_hand": 4200,
+          "reserved": 0,
+          "version": 1
+        }
+      ],
+      "receipts": [
+        {
+          "receipt_id": "INB-001",
+          "material_id": "IR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-002",
+          "material_id": "OR-6202",
+          "unit": "EA",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-003",
+          "material_id": "BALLSET-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-004",
+          "material_id": "CAGE-6202",
+          "unit": "SET",
+          "quantity": 600,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-005",
+          "material_id": "SEAL-RS1-6202",
+          "unit": "EA",
+          "quantity": 1200,
+          "eta": "2026-09-15T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-006",
+          "material_id": "IR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-007",
+          "material_id": "OR-6203",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-008",
+          "material_id": "BALLSET-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-009",
+          "material_id": "CAGE-6203",
+          "unit": "SET",
+          "quantity": 800,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-010",
+          "material_id": "SEAL-RS1-6203",
+          "unit": "EA",
+          "quantity": 1600,
+          "eta": "2026-09-15T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-011",
+          "material_id": "IR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-012",
+          "material_id": "OR-6204",
+          "unit": "EA",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-013",
+          "material_id": "BALLSET-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-014",
+          "material_id": "CAGE-6204",
+          "unit": "SET",
+          "quantity": 400,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-015",
+          "material_id": "SEAL-RS1-6204",
+          "unit": "EA",
+          "quantity": 800,
+          "eta": "2026-09-14T05:00:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        },
+        {
+          "receipt_id": "INB-016",
+          "material_id": "GREASE-G01",
+          "unit": "GFU",
+          "quantity": 1500,
+          "eta": "2026-09-16T00:30:00Z",
+          "status": "CONFIRMED",
+          "received_at": null,
+          "version": 1
+        }
+      ],
+      "actuals": [],
+      "reservations": [],
+      "production_batches": [
+        {
+          "batch_id": "SO-001-R001-B001",
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "quantity": 50,
+          "sequence": 1,
+          "purpose": "CANCELLED",
+          "source_event_id": "frontend-contract:cancel:SO-001",
+          "changed_order_version": 2
+        },
+        {
+          "batch_id": "SO-001-R001-B002",
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "quantity": 50,
+          "sequence": 2,
+          "purpose": "CANCELLED",
+          "source_event_id": "frontend-contract:cancel:SO-001",
+          "changed_order_version": 2
+        },
+        {
+          "batch_id": "SO-001-R001-B003",
+          "order_id": "SO-001",
+          "product_id": "BRG-6202-2RS1",
+          "route_version": "V1.6",
+          "quantity": 50,
+          "sequence": 3,
+          "purpose": "CANCELLED",
+          "source_event_id": "frontend-contract:cancel:SO-001",
+          "changed_order_version": 2
+        }
+      ],
+      "business_terms": {
+        "version": "synthetic-business-options-v1",
+        "evidence_mode": "synthetic",
+        "delivery_rules": [
+          {
+            "product_id": "BRG-6202-2RS1",
+            "partial_delivery_allowed": true,
+            "minimum_partial_quantity": 50,
+            "max_deliveries": 2
+          }
+        ],
+        "expedite_quotes": []
+      },
+      "content_hash": "d791de2aeb5d0b068dff0e572d6d082d339dc5868ede34bcd5cbf519b375fb77"
+    }
+  ],
+  "empty_candidate": {
+    "schema_version": "byof.candidate/3",
+    "candidate_id": "c30cba05-1273-4ff4-a6a9-400be99b4b4e",
+    "factory_id": "business-demand",
+    "version": 1,
+    "binding": {
+      "snapshot_hash": "d791de2aeb5d0b068dff0e572d6d082d339dc5868ede34bcd5cbf519b375fb77",
+      "planning_revision": 2,
+      "scope_version": 2,
+      "profile_version": "V1.6",
+      "policy_version": "skf-v1.6-default",
+      "objective_version": "delivery-v1",
+      "baseline_plan_version": null
+    },
+    "native_status": "OPTIMAL",
+    "solver_passes": [
+      {
+        "objective_name": "weighted_tardiness",
+        "native_status": "OPTIMAL",
+        "has_solution": true,
+        "objective_value": 0,
+        "best_bound": 0.0,
+        "wall_time_seconds": 0.0033852
+      },
+      {
+        "objective_name": "makespan",
+        "native_status": "OPTIMAL",
+        "has_solution": true,
+        "objective_value": 0,
+        "best_bound": 0.0,
+        "wall_time_seconds": 0.0003309
+      }
+    ],
+    "last_search_status": "OPTIMAL",
+    "constant_objective_levels": [
+      "incremental_overtime_metric",
+      "changed_operations",
+      "total_start_shift"
+    ],
+    "has_solution": true,
+    "termination_reason": "COMPLETED",
+    "objective": [
+      {
+        "name": "weighted_tardiness",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "incremental_overtime_metric",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "changed_operations",
+        "value": 0,
+        "unit": "operations",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "total_start_shift",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "makespan",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      }
+    ],
+    "proven_objective_levels": 5,
+    "assignments": [],
+    "scenario": [],
+    "required_consents": [],
+    "checker": {
+      "checker_version": "byof.independent-checker/2",
+      "snapshot_hash": "d791de2aeb5d0b068dff0e572d6d082d339dc5868ede34bcd5cbf519b375fb77",
+      "status": "PASS",
+      "issues": []
+    },
+    "effective_not_before": "2026-09-14T00:30:00Z",
+    "accept_before": "2026-09-14T00:31:00Z",
+    "empty_demand": true,
+    "content_hash": "2b2e5d6598f41de3935567f77022d14e7733fa7facaf386ec1fc16816f14c1fb"
+  },
+  "legacy_snapshot": {
+    "schema_version": "byof.snapshot/1",
+    "snapshot_id": "skf-development-v1",
+    "factory_id": "skf-development",
+    "run_id": "development-initial",
+    "snapshot_clock": "2026-09-14T00:30:00Z",
+    "horizon": {
+      "start_at": "2026-09-14T00:30:00Z",
+      "end_at": "2026-09-18T09:30:00Z"
+    },
+    "source": {
+      "source_system": "skf-static-csv",
+      "source_revision": "73529f9f67928a0ea2f2fe9ce94556a9c9407baae5896cf91ce235ac127bf591",
+      "cursor": null,
+      "observed_at": "2026-09-14T00:30:00Z",
+      "effective_at": "2026-09-14T00:30:00Z",
+      "complete": true,
+      "consistency": "ATOMIC_SNAPSHOT",
+      "freshness": "CURRENT",
+      "ownership": "simulator_fact",
+      "evidence_digest": "73529f9f67928a0ea2f2fe9ce94556a9c9407baae5896cf91ce235ac127bf591"
+    },
+    "planning_revision": 1,
+    "scope_version": 1,
+    "active_plan_version": null,
+    "active_plan_hash": null,
+    "orders": [
+      {
+        "order_id": "SO-001",
+        "product_id": "BRG-6202-2RS1",
+        "quantity": 50,
+        "due_at": "2026-09-14T09:30:00Z",
+        "priority_weight": 1,
+        "hard_deadline": false,
+        "version": 1,
+        "split_revision": 1,
+        "status": "CONFIRMED"
+      }
+    ],
+    "inventory": [
+      {
+        "material_id": "IR-6202",
+        "unit": "EA",
+        "on_hand": 1200,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "OR-6202",
+        "unit": "EA",
+        "on_hand": 1200,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BALLSET-6202",
+        "unit": "SET",
+        "on_hand": 1200,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "CAGE-6202",
+        "unit": "SET",
+        "on_hand": 1200,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "SEAL-RS1-6202",
+        "unit": "EA",
+        "on_hand": 2400,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BOX-6202",
+        "unit": "EA",
+        "on_hand": 1800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "IR-6203",
+        "unit": "EA",
+        "on_hand": 1000,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "OR-6203",
+        "unit": "EA",
+        "on_hand": 1000,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BALLSET-6203",
+        "unit": "SET",
+        "on_hand": 1000,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "CAGE-6203",
+        "unit": "SET",
+        "on_hand": 1000,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "SEAL-RS1-6203",
+        "unit": "EA",
+        "on_hand": 2000,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BOX-6203",
+        "unit": "EA",
+        "on_hand": 1800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "IR-6204",
+        "unit": "EA",
+        "on_hand": 800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "OR-6204",
+        "unit": "EA",
+        "on_hand": 800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BALLSET-6204",
+        "unit": "SET",
+        "on_hand": 800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "CAGE-6204",
+        "unit": "SET",
+        "on_hand": 800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "SEAL-RS1-6204",
+        "unit": "EA",
+        "on_hand": 1600,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BOX-6204",
+        "unit": "EA",
+        "on_hand": 1800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "IR-6205",
+        "unit": "EA",
+        "on_hand": 600,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "OR-6205",
+        "unit": "EA",
+        "on_hand": 600,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BALLSET-6205",
+        "unit": "SET",
+        "on_hand": 600,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "CAGE-6205",
+        "unit": "SET",
+        "on_hand": 600,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "SEAL-RS1-6205",
+        "unit": "EA",
+        "on_hand": 1200,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "BOX-6205",
+        "unit": "EA",
+        "on_hand": 1800,
+        "reserved": 0,
+        "version": 1
+      },
+      {
+        "material_id": "GREASE-G01",
+        "unit": "GFU",
+        "on_hand": 4200,
+        "reserved": 0,
+        "version": 1
+      }
+    ],
+    "receipts": [
+      {
+        "receipt_id": "INB-001",
+        "material_id": "IR-6202",
+        "unit": "EA",
+        "quantity": 600,
+        "eta": "2026-09-15T00:30:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-002",
+        "material_id": "OR-6202",
+        "unit": "EA",
+        "quantity": 600,
+        "eta": "2026-09-15T00:30:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-003",
+        "material_id": "BALLSET-6202",
+        "unit": "SET",
+        "quantity": 600,
+        "eta": "2026-09-15T00:30:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-004",
+        "material_id": "CAGE-6202",
+        "unit": "SET",
+        "quantity": 600,
+        "eta": "2026-09-15T00:30:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-005",
+        "material_id": "SEAL-RS1-6202",
+        "unit": "EA",
+        "quantity": 1200,
+        "eta": "2026-09-15T00:30:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-006",
+        "material_id": "IR-6203",
+        "unit": "EA",
+        "quantity": 800,
+        "eta": "2026-09-15T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-007",
+        "material_id": "OR-6203",
+        "unit": "EA",
+        "quantity": 800,
+        "eta": "2026-09-15T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-008",
+        "material_id": "BALLSET-6203",
+        "unit": "SET",
+        "quantity": 800,
+        "eta": "2026-09-15T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-009",
+        "material_id": "CAGE-6203",
+        "unit": "SET",
+        "quantity": 800,
+        "eta": "2026-09-15T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-010",
+        "material_id": "SEAL-RS1-6203",
+        "unit": "EA",
+        "quantity": 1600,
+        "eta": "2026-09-15T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-011",
+        "material_id": "IR-6204",
+        "unit": "EA",
+        "quantity": 400,
+        "eta": "2026-09-14T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-012",
+        "material_id": "OR-6204",
+        "unit": "EA",
+        "quantity": 400,
+        "eta": "2026-09-14T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-013",
+        "material_id": "BALLSET-6204",
+        "unit": "SET",
+        "quantity": 400,
+        "eta": "2026-09-14T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-014",
+        "material_id": "CAGE-6204",
+        "unit": "SET",
+        "quantity": 400,
+        "eta": "2026-09-14T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-015",
+        "material_id": "SEAL-RS1-6204",
+        "unit": "EA",
+        "quantity": 800,
+        "eta": "2026-09-14T05:00:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      },
+      {
+        "receipt_id": "INB-016",
+        "material_id": "GREASE-G01",
+        "unit": "GFU",
+        "quantity": 1500,
+        "eta": "2026-09-16T00:30:00Z",
+        "status": "CONFIRMED",
+        "received_at": null,
+        "version": 1
+      }
+    ],
+    "actuals": [],
+    "reservations": [],
+    "content_hash": "c1c82339976416a0f74a9c13defbc10519bdd4667e504c0c379fa56e361b4deb"
+  },
+  "legacy_candidate": {
+    "schema_version": "byof.candidate/2",
+    "candidate_id": "f3dcf16f-837b-4049-9803-f1e562f81122",
+    "factory_id": "skf-development",
+    "version": 1,
+    "binding": {
+      "snapshot_hash": "c1c82339976416a0f74a9c13defbc10519bdd4667e504c0c379fa56e361b4deb",
+      "planning_revision": 1,
+      "scope_version": 1,
+      "profile_version": "V1.6",
+      "policy_version": "skf-v1.6-default",
+      "objective_version": "delivery-v1",
+      "baseline_plan_version": null
+    },
+    "native_status": "OPTIMAL",
+    "solver_passes": [
+      {
+        "objective_name": "weighted_tardiness",
+        "native_status": "OPTIMAL",
+        "has_solution": true,
+        "objective_value": 0,
+        "best_bound": 0.0,
+        "wall_time_seconds": 0.0051025
+      },
+      {
+        "objective_name": "makespan",
+        "native_status": "OPTIMAL",
+        "has_solution": true,
+        "objective_value": 66,
+        "best_bound": 66.0,
+        "wall_time_seconds": 0.0084697
+      }
+    ],
+    "last_search_status": "OPTIMAL",
+    "constant_objective_levels": [
+      "incremental_overtime_metric",
+      "changed_operations",
+      "total_start_shift"
+    ],
+    "has_solution": true,
+    "termination_reason": "COMPLETED",
+    "objective": [
+      {
+        "name": "weighted_tardiness",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "incremental_overtime_metric",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "changed_operations",
+        "value": 0,
+        "unit": "operations",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "total_start_shift",
+        "value": 0,
+        "unit": "minutes",
+        "lower_bound": 0,
+        "unknown_reason": null
+      },
+      {
+        "name": "makespan",
+        "value": 66,
+        "unit": "minutes",
+        "lower_bound": 66,
+        "unknown_reason": null
+      }
+    ],
+    "proven_objective_levels": 5,
+    "assignments": [
+      {
+        "start_at": "2026-09-14T00:30:00Z",
+        "end_at": "2026-09-14T00:40:00Z",
+        "operation_id": "SO-001-R001-B001-OP10",
+        "resource_id": "KIT-01",
+        "worker_id": "W01",
+        "changeover_start": "2026-09-14T00:30:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T00:40:00Z",
+        "end_at": "2026-09-14T00:49:00Z",
+        "operation_id": "SO-001-R001-B001-OP20",
+        "resource_id": "ASMCELL-A",
+        "worker_id": "W01",
+        "changeover_start": "2026-09-14T00:40:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T00:49:00Z",
+        "end_at": "2026-09-14T00:55:00Z",
+        "operation_id": "SO-001-R001-B001-OP30",
+        "resource_id": "ASMCELL-B",
+        "worker_id": "W01",
+        "changeover_start": "2026-09-14T00:49:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T00:55:00Z",
+        "end_at": "2026-09-14T01:04:00Z",
+        "operation_id": "SO-001-R001-B001-OP60",
+        "resource_id": "TEST-01",
+        "worker_id": "W05",
+        "changeover_start": "2026-09-14T00:55:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T01:04:00Z",
+        "end_at": "2026-09-14T01:10:00Z",
+        "operation_id": "SO-001-R001-B001-OP40",
+        "resource_id": "LUBE-01",
+        "worker_id": "W03",
+        "changeover_start": "2026-09-14T01:04:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T01:10:00Z",
+        "end_at": "2026-09-14T01:18:00Z",
+        "operation_id": "SO-001-R001-B001-OP50",
+        "resource_id": "SEAL-01",
+        "worker_id": "W03",
+        "changeover_start": "2026-09-14T01:10:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T01:18:00Z",
+        "end_at": "2026-09-14T01:27:00Z",
+        "operation_id": "SO-001-R001-B001-OP70",
+        "resource_id": "FINS-01",
+        "worker_id": "W05",
+        "changeover_start": "2026-09-14T01:18:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      },
+      {
+        "start_at": "2026-09-14T01:27:00Z",
+        "end_at": "2026-09-14T01:36:00Z",
+        "operation_id": "SO-001-R001-B001-OP80",
+        "resource_id": "PACK-01",
+        "worker_id": "W07",
+        "changeover_start": "2026-09-14T01:27:00Z",
+        "resume_at": null,
+        "resume_changeover_start": null
+      }
+    ],
+    "scenario": [],
+    "required_consents": [],
+    "checker": {
+      "checker_version": "byof.independent-checker/2",
+      "snapshot_hash": "c1c82339976416a0f74a9c13defbc10519bdd4667e504c0c379fa56e361b4deb",
+      "status": "PASS",
+      "issues": []
+    },
+    "effective_not_before": "2026-09-14T00:30:00Z",
+    "accept_before": "2026-09-14T00:31:00Z",
+    "content_hash": "018b7a91c6e96264edead10c093b1d3bdd0a14cd889703e2c506de01e2bfa6d5"
+  }
+}

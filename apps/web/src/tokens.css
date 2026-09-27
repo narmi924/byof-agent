@@ -1,0 +1,177 @@
+/* BYOF design language: warm paper canvas, ink actions, signal orange only for approval.
+   This file is the single source of token values; component styles reference names only. */
+:root {
+  /* Surfaces and ink */
+  --canvas: #f3f0ee;
+  --surface-lifted: #fcfbfa;
+  --surface: #ffffff;
+  --surface-soft: #f7f5f3;
+  --surface-strong: #ebe7e3;
+  --surface-hover: #efebe7;
+  --ink: #141413;
+  --ink-2: #262627;
+  --ink-body: #262627;
+  --ink-muted: #696969;
+  --ink-quiet: #8a8784;
+  --on-ink: #f3f0ee;
+  --hairline: rgba(20, 20, 19, .12);
+  --hairline-soft: rgba(20, 20, 19, .08);
+  --hairline-strong: rgba(20, 20, 19, .22);
+  --ink-soft: #262627;
+  --dark-border: #3a3a39;
+
+  /* The one committing colour: approve and execute. */
+  --signal: #cf4500;
+  /* Secondary tones from the reference palette, used sparingly for orientation. */
+  --clay: #9a3a0a;
+  --whisper: #ebe5de;
+  --taupe: #d1cdc7;
+  --signal-hover: #b43c00;
+  --on-signal: #ffffff;
+  --link: #3860be;
+
+  /* Semantic states, always paired with text */
+  --positive: #2f6b3a;
+  --positive-bg: #eaf1ea;
+  --positive-border: #c5d9c8;
+  --critical: #8a5a00;
+  --critical-bg: #f6eedb;
+  --critical-border: #e5d3a6;
+  --negative: #b42318;
+  --negative-bg: #f8e7e4;
+  --negative-border: #ecc3bd;
+  --info: #3860be;
+  --info-bg: #e9eef9;
+  --info-border: #c6d3ef;
+  --neutral-bg: var(--surface-soft);
+  --neutral-border: var(--hairline);
+
+  /* shadcn semantic mapping */
+  --background: var(--canvas);
+  --foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-hover: var(--ink-2);
+  --primary-foreground: var(--on-ink);
+  --muted: var(--surface-soft);
+  --muted-foreground: var(--ink-muted);
+  --border: var(--hairline);
+  --input: var(--hairline-strong);
+  --ring: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --secondary: var(--surface-soft);
+  --secondary-foreground: var(--ink);
+  --accent: var(--surface-soft);
+  --accent-foreground: var(--ink);
+  --destructive: var(--negative);
+
+  /* Legacy names kept neutral so older component styles follow the new language. */
+  --brand: var(--ink);
+  --brand-light: var(--ink-2);
+  --brand-hover: var(--ink-2);
+  --brand-active: var(--ink-2);
+  --brand-soft: var(--surface-soft);
+  --brand-softer: var(--surface-lifted);
+  --brand-border: var(--hairline-strong);
+  --on-brand: var(--on-ink);
+  --hairline-soft-legacy: var(--hairline-soft);
+
+  /* Schedule (timeline) */
+  --plan-fill: #e7ede3;
+  --plan-edge: #2f6b3a;
+  --plan-ink: #141413;
+  --setup-fill: #f6eedb;
+  --setup-stripe: #c79a3c;
+  --setup-ink: #141413;
+  --run-fill: #3860be;
+  --run-edge: #2c4f9e;
+  --run-ink: #ffffff;
+  --done-fill: #ebe7e3;
+  --done-edge: #696969;
+  --done-ink: #262627;
+  --unjudged-fill: #f7f5f3;
+  --unjudged-edge: #8a8784;
+  --unjudged-ink: #262627;
+  --blocked-fill: #b42318;
+  --blocked-edge: #8f1b12;
+  --blocked-ink: #ffffff;
+  --unconfirmed-fill: #b42318;
+  --replan-line: var(--ink);
+  --now-line: #cf4500;
+  --shift-normal: #ffffff;
+  --shift-overtime: #f6eedb;
+  --shift-overtime-stripe: #e5d3a6;
+  --shift-closed: #ebe7e3;
+  --shift-closed-stripe: #d9d4ce;
+  --shift-unavailable-stripe: var(--negative);
+  --freeze-veil: rgba(20, 20, 19, .04);
+  --freeze-edge: var(--hairline-strong);
+  --bar-hover: transparent;
+
+  /* Radius scale: tags, fields, buttons and cards, panels, pills */
+  --radius-nano: 6px;
+  --radius-micro: 12px;
+  --radius-macro: 20px;
+  --radius-mega: 28px;
+  --radius-full: 999px;
+  --radius-xs: var(--radius-nano);
+  --radius-sm: var(--radius-nano);
+  --radius-md: var(--radius-micro);
+  --radius-lg: var(--radius-macro);
+  --radius-xl: var(--radius-mega);
+  --radius-bar: 4px;
+  --radius-pill: var(--radius-full);
+
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+
+  --shadow-card: none;
+  --shadow-raised: 0 4px 24px rgba(0, 0, 0, .04);
+  --shadow-overlay: 0 24px 48px rgba(0, 0, 0, .08);
+  --shadow-dialog: 0 24px 48px rgba(0, 0, 0, .08);
+  --shadow-focus: none;
+  --scrim: rgba(20, 20, 19, .24);
+
+  --font-sans: "Sofia Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Microsoft YaHei", monospace;
+  --weight-body: 450;
+  --weight-strong: 500;
+  --weight-heading: 500;
+
+  --control-height: 40px;
+  --row-height: 44px;
+  --control-padding: 8px 20px;
+  --cell-padding: 10px 14px;
+  --card-padding: 24px;
+  --section-gap: var(--space-xl);
+
+  --shellbar-height: 56px;
+  --rail-width: 272px;
+  --drawer-width: 560px;
+  --content-max: 1280px;
+  --chat-max: 800px;
+  --motion: 150ms ease-out;
+}
+
+.density-cozy {
+  --control-height: 40px;
+  --row-height: 44px;
+  --control-padding: 8px 20px;
+  --cell-padding: 10px 14px;
+  --section-gap: var(--space-xl);
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --card-padding: 20px;
+    --rail-width: 248px;
+  }
+}

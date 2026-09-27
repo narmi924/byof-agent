@@ -1,0 +1,5 @@
+product_id,product_name,batch_size,bore_mm,outer_diameter_mm,width_mm,weight_kg
+BRG-6202-2RS1,6202-2RS1,50,15,35,11,0.0454
+BRG-6203-2RS1,6203-2RS1,50,17,40,12,0.0656
+BRG-6204-2RS1,6204-2RS1,50,20,47,14,0.1062
+BRG-6205-2RS1,6205-2RS1,50,25,52,15,0.1303

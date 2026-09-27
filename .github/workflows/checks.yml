@@ -1,0 +1,82 @@
+name: Offline checks
+# One run per pull-request commit (plus main); a newer commit cancels the older run.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+permissions:
+  contents: read
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18.3
+        env:
+          POSTGRES_PASSWORD: ci-bootstrap-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      BOOTSTRAP_DATABASE_URL: postgresql+psycopg://postgres:ci-bootstrap-only@127.0.0.1:5432/postgres
+      MIGRATION_DATABASE_URL: postgresql+psycopg://byof_owner:ci-owner-only@127.0.0.1:5432/byof_test
+      DATABASE_URL: postgresql+psycopg://byof_app:ci-app-only@127.0.0.1:5432/byof_test
+      FACTORY_DATABASE_URL: postgresql+psycopg://factory_sim_app:ci-sim-only@127.0.0.1:5432/byof_test
+      TEST_DATABASE_URL: postgresql+psycopg://byof_app:ci-app-only@127.0.0.1:5432/byof_test
+      TEST_FACTORY_DATABASE_URL: postgresql+psycopg://factory_sim_app:ci-sim-only@127.0.0.1:5432/byof_test
+      TEST_MIGRATION_DATABASE_URL: postgresql+psycopg://byof_owner:ci-owner-only@127.0.0.1:5432/byof_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.5"
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run --locked python -m scripts.bootstrap_postgres
+      - run: uv run --locked alembic upgrade head
+      - run: uv run --locked python scripts/check.py
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
+  containers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.5"
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run --locked python -m scripts.compose_config
+      - run: docker compose --env-file .runtime/compose.env config --quiet
+      - run: docker compose --env-file .runtime/compose.env -f compose.yaml -f compose.dev.yaml config --quiet
+      - run: docker compose -f compose.test.yaml config --quiet
+      - run: docker compose --env-file .runtime/compose.env build api web
+      - run: docker compose --env-file .runtime/compose.env up -d --wait --wait-timeout 180 web solver-worker business-worker factory-clock
+      - run: docker compose --env-file .runtime/compose.env run --rm team-setup
+      - run: docker compose --env-file .runtime/compose.env run --rm team-setup
+      - run: uv run --locked python -m scripts.container_smoke --seconds 30 --execute
+      - if: always()
+        run: docker compose --env-file .runtime/compose.env ps -a
+      - if: always()
+        run: docker compose --env-file .runtime/compose.env down

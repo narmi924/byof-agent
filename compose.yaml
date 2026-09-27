@@ -1,0 +1,220 @@
+name: byof-agent
+
+x-backend: &backend
+  image: byof-agent-python:local
+  build:
+    context: .
+    dockerfile: deploy/Dockerfile
+  init: true
+  read_only: true
+  tmpfs:
+    - /tmp
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+
+x-application-environment: &application-environment
+  ENVIRONMENT: local
+  DATABASE_URL: ${DATABASE_URL:?Run python -m scripts.compose_config first}
+  PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://127.0.0.1:18080}
+  FACTORY_API_URL: http://factory-sim:8001
+  FACTORY_API_TOKEN: ${FACTORY_API_TOKEN:?Missing simulator reader credential}
+  SMTP_MODE: ${SMTP_MODE:-disabled}
+  SMTP_HOST: ${SMTP_HOST:-}
+  SMTP_PORT: ${SMTP_PORT:-587}
+  SMTP_FROM: ${SMTP_FROM:-}
+  TEST_EMAIL_RECIPIENT: ${TEST_EMAIL_RECIPIENT:-}
+  REAL_EMAIL_ALLOWLIST: ${REAL_EMAIL_ALLOWLIST:-}
+  ALLOW_REAL_EMAIL: ${ALLOW_REAL_EMAIL:-false}
+
+x-model-environment: &model-environment
+  LLM_GATEWAY_URL: ${LLM_GATEWAY_URL:-https://api.deepseek.com}
+  LLM_GATEWAY_API_KEY: ${LLM_GATEWAY_API_KEY:-}
+  LLM_MODEL: ${LLM_MODEL:-deepseek-flash}
+  LLM_PROVIDER: ${LLM_PROVIDER:-deepseek}
+  GATEWAY_URL: ${GATEWAY_URL:-}
+  GATEWAY_API_KEY: ${GATEWAY_API_KEY:-}
+  DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+
+services:
+  postgres:
+    image: postgres:18.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Missing isolated PostgreSQL administrator credential}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+    restart: unless-stopped
+
+  bootstrap:
+    <<: *backend
+    command: ["python", "-m", "scripts.bootstrap_postgres"]
+    environment:
+      BOOTSTRAP_DATABASE_URL: ${BOOTSTRAP_DATABASE_URL:?Missing database bootstrap URL}
+      MIGRATION_DATABASE_URL: ${MIGRATION_DATABASE_URL:?Missing database owner URL}
+      DATABASE_URL: ${DATABASE_URL:?Missing application database URL}
+      FACTORY_DATABASE_URL: ${FACTORY_DATABASE_URL:?Missing simulator database URL}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  migrate:
+    <<: *backend
+    command: ["alembic", "upgrade", "head"]
+    environment:
+      MIGRATION_DATABASE_URL: ${MIGRATION_DATABASE_URL:?Missing database owner URL}
+    depends_on:
+      bootstrap:
+        condition: service_completed_successfully
+    restart: "no"
+
+  factory-sim:
+    <<: *backend
+    command: ["python", "-m", "uvicorn", "services.factory_sim.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    environment:
+      FACTORY_DATABASE_URL: ${FACTORY_DATABASE_URL:?Missing simulator database URL}
+      FACTORY_API_TOKEN: ${FACTORY_API_TOKEN:?Missing simulator reader credential}
+      FACTORY_EXECUTION_TOKEN: ${FACTORY_EXECUTION_TOKEN:?Missing conditional execution credential}
+      FACTORY_CONTROL_TOKEN: ${FACTORY_CONTROL_TOKEN:?Missing private simulator control credential}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8001/health/ready', timeout=3).close()"]
+      interval: 5s
+      timeout: 4s
+      retries: 20
+      start_period: 10s
+    restart: unless-stopped
+
+  api:
+    <<: *backend
+    environment:
+      <<: [*application-environment, *model-environment]
+      FACTORY_CONTROL_TOKEN: ${FACTORY_CONTROL_TOKEN:?Missing private simulator control credential}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      factory-sim:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health/ready', timeout=3).close()"]
+      interval: 5s
+      timeout: 4s
+      retries: 20
+      start_period: 10s
+    restart: unless-stopped
+
+  solver-worker:
+    <<: *backend
+    command: ["python", "-m", "services.solver_worker.main"]
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Missing application database URL}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "from sqlalchemy import text; from packages.persistence import connect; from packages.settings import Settings; e=connect(Settings().database_url.get_secret_value()); c=e.connect(); assert c.scalar(text(\"SELECT to_regclass('byof.solve_jobs')\")); c.close(); e.dispose()"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  business-worker:
+    <<: *backend
+    command: ["python", "-m", "services.worker.main"]
+    environment:
+      <<: [*application-environment, *model-environment]
+      FACTORY_EXECUTION_TOKEN: ${FACTORY_EXECUTION_TOKEN:?Missing conditional execution credential}
+      FACTORY_CONTROL_TOKEN: ${FACTORY_CONTROL_TOKEN:?Missing simulator control credential}
+      SMTP_TIMEOUT_SECONDS: ${SMTP_TIMEOUT_SECONDS:-10}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      factory-sim:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "from sqlalchemy import text; from packages.persistence import connect; from packages.settings import Settings; e=connect(Settings().database_url.get_secret_value()); c=e.connect(); assert c.scalar(text(\"SELECT to_regclass('byof.agent_runs')\")); c.close(); e.dispose()"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  factory-clock:
+    <<: *backend
+    command: ["python", "-m", "services.factory_sim.worker"]
+    environment:
+      FACTORY_DATABASE_URL: ${FACTORY_DATABASE_URL:?Missing simulator database URL}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  web:
+    image: byof-agent-web:local
+    build:
+      context: .
+      dockerfile: deploy/web.Dockerfile
+    ports:
+      - "${WEB_BIND_ADDRESS:-127.0.0.1}:18080:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/health/ready"]
+      interval: 5s
+      timeout: 6s
+      retries: 20
+      start_period: 10s
+    restart: unless-stopped
+
+  import-factory:
+    <<: *backend
+    profiles: ["tools"]
+    command: ["python", "-m", "scripts.import_factory"]
+    environment:
+      FACTORY_DATABASE_URL: ${FACTORY_DATABASE_URL:?Missing simulator database URL}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
+
+  team-setup:
+    <<: *backend
+    profiles: ["tools"]
+    command: ["python", "-m", "scripts.setup_team"]
+    environment:
+      ENVIRONMENT: local
+      DATABASE_URL: ${DATABASE_URL:?Missing application database URL}
+      FACTORY_API_URL: http://factory-sim:8001
+      FACTORY_API_TOKEN: ${FACTORY_API_TOKEN:?Missing simulator reader credential}
+      MIGRATION_DATABASE_URL: ${MIGRATION_DATABASE_URL:?Missing database owner URL}
+      FACTORY_DATABASE_URL: ${FACTORY_DATABASE_URL:?Missing simulator database URL}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
+
+volumes:
+  postgres-data:

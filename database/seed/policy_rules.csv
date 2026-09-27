@@ -1,0 +1,15 @@
+rule_id,rule_text,source_section
+BATCH,仅接受正整数且50整倍数；非倍数返回UNSUPPORTED_BATCH_QUANTITY；不同订单不混批。,6.2
+ROUTING,依赖顺序OP10→OP20→OP30→OP60→OP40→OP50→OP70→OP80；旧在制绑定原版本。,7/18.1
+KITTING,OP10实际开工要求整批全部BOM齐套并实物预留；未来计划分配不等于现货或预留。,9
+CONSUMPTION,实际耗料工序开始扣账；预留不减少现货；实际耗用同时减少现货与对应预留。,9/13.3
+INBOUND,ETA含同刻才支持计划供应；同刻先处理合格到货再预留；实际开工须验收入库，不得双计未来和现货。,13/18.4/22.1
+CAPACITY,工序全程同时占用一个合格员工和一个合格资源；不可重叠或跨不可用时间。,12.2/18.2/18.3
+CHANGEOVER,转换独立于setup；紧接后续任务，同资源和后续任务员工执行，计入工作日历与容量；跨日保留设备状态。,10.3
+FREEZE,"已批准计划尚未开始且开始落在[now,now+60min)内，固定开始/资源/员工；物理不可执行须记录冲突和例外许可。",17/22.2
+WIP,完成任务不可重排删除；在制保留实际开始/资源/完成量/耗料/确认剩余工时；故障阻塞，禁止重新整批扣料。,17/22.2
+DEADLINE,due_at为软交期；hard_deadline=1时不可违反；提高惩罚不等于放宽硬截止。,16/18.7
+OVERTIME,加班情景需员工可加班；发布前须经理审批；加班窗口不是批准记录。,16.3
+OBJECTIVE,硬约束满足后，依次按Weighted Tardiness、Incremental Overtime Cost、Number of Changed Operations、Total Start-Time Shift、Makespan作字典序优化。订单完成为所有批次OP80完成的最大值；初次排产稳定性指标为0；费率缺失不能虚构加班金额。,19
+REGENERATION,已开工订单变更先核对实际/剩余数量并生成新拆批版本，不能直接重拆历史批次。,6.2
+TIME,UTC存储、UTC+8展示，整数分钟，休息夜间不压缩，区间左闭右开；新开工不早于可执行时点。,22.1

@@ -1,0 +1,6 @@
+{
+  "base_snapshot": "skf-small.json",
+  "order_id": "SO-001",
+  "quantity": 51,
+  "expected_error": "UNSUPPORTED_BATCH_QUANTITY"
+}

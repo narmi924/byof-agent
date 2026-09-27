@@ -1,0 +1,444 @@
+{
+  "schema_version": "byof.snapshot/2",
+  "snapshot_id": "synthetic-branch-initial-1",
+  "factory_id": "synthetic-branch-assembly",
+  "run_id": "synthetic-branch-run-1",
+  "snapshot_clock": "2026-09-19T00:00:00Z",
+  "horizon": {
+    "start_at": "2026-09-19T00:00:00Z",
+    "end_at": "2026-09-19T01:00:00Z"
+  },
+  "source": {
+    "source_system": "synthetic-assembly-config",
+    "source_revision": "1",
+    "cursor": "1",
+    "observed_at": "2026-09-19T00:00:00Z",
+    "effective_at": "2026-09-19T00:00:00Z",
+    "complete": true,
+    "consistency": "ATOMIC_SNAPSHOT",
+    "freshness": "CURRENT",
+    "ownership": "simulator_fact",
+    "evidence_digest": "d205fe5352475f7ef15a3dfaa0be778c55bf98963f87a2d56c9c6b7f27b2e8f5"
+  },
+  "planning_revision": 1,
+  "scope_version": 1,
+  "active_plan_version": null,
+  "active_plan_hash": null,
+  "profile": {
+    "schema_version": "byof.factory-profile/1",
+    "factory_id": "synthetic-branch-assembly",
+    "profile_id": "synthetic-branch-assembly",
+    "version": "assembly-branch-1",
+    "timezone": "Asia/Singapore",
+    "activation_state": "DRAFT",
+    "evidence_mode": "synthetic",
+    "source_digest": "d205fe5352475f7ef15a3dfaa0be778c55bf98963f87a2d56c9c6b7f27b2e8f5",
+    "required_capabilities": [
+      "fixed_lot_exact_split",
+      "acyclic_operation_precedence",
+      "alternative_unary_resource",
+      "one_qualified_worker_full_duration",
+      "full_kit_before_first_operation",
+      "per_operation_consumption",
+      "independent_schedule_check"
+    ],
+    "products": [
+      {
+        "product_id": "connector-module",
+        "name": "Synthetic wiring assembly",
+        "batch_size": 10,
+        "route_version": "branch-route-1"
+      }
+    ],
+    "materials": [
+      {
+        "material_id": "shell-part",
+        "name": "Synthetic shell",
+        "unit": "EA"
+      },
+      {
+        "material_id": "contact-part",
+        "name": "Synthetic contact",
+        "unit": "EA"
+      }
+    ],
+    "bom": [
+      {
+        "product_id": "connector-module",
+        "material_id": "shell-part",
+        "quantity_per_unit": 1,
+        "consume_step_id": "shell"
+      },
+      {
+        "product_id": "connector-module",
+        "material_id": "contact-part",
+        "quantity_per_unit": 2,
+        "consume_step_id": "contacts"
+      }
+    ],
+    "routes": [
+      {
+        "step_id": "join",
+        "product_id": "connector-module",
+        "route_version": "branch-route-1",
+        "operation_code": "JOIN",
+        "name": "Join assembly",
+        "predecessors": [
+          "shell",
+          "contacts"
+        ],
+        "setup_min": 1,
+        "cycle_sec_per_unit": 12,
+        "resource_type": "JOIN_BENCH",
+        "skill": "JOIN",
+        "quality_gate": false,
+        "quality_threshold": null
+      },
+      {
+        "step_id": "kit",
+        "product_id": "connector-module",
+        "route_version": "branch-route-1",
+        "operation_code": "KIT",
+        "name": "Kitting",
+        "predecessors": [],
+        "setup_min": 1,
+        "cycle_sec_per_unit": 6,
+        "resource_type": "KIT_BENCH",
+        "skill": "KIT",
+        "quality_gate": false,
+        "quality_threshold": null
+      },
+      {
+        "step_id": "verify",
+        "product_id": "connector-module",
+        "route_version": "branch-route-1",
+        "operation_code": "VERIFY",
+        "name": "Final test",
+        "predecessors": [
+          "join"
+        ],
+        "setup_min": 0,
+        "cycle_sec_per_unit": 12,
+        "resource_type": "TEST_BENCH",
+        "skill": "TEST",
+        "quality_gate": true,
+        "quality_threshold": null
+      },
+      {
+        "step_id": "contacts",
+        "product_id": "connector-module",
+        "route_version": "branch-route-1",
+        "operation_code": "CONTACTS",
+        "name": "Contact assembly",
+        "predecessors": [
+          "kit"
+        ],
+        "setup_min": 0,
+        "cycle_sec_per_unit": 24,
+        "resource_type": "CONTACT_BENCH",
+        "skill": "CONTACT",
+        "quality_gate": false,
+        "quality_threshold": null
+      },
+      {
+        "step_id": "shell",
+        "product_id": "connector-module",
+        "route_version": "branch-route-1",
+        "operation_code": "SHELL",
+        "name": "Shell assembly",
+        "predecessors": [
+          "kit"
+        ],
+        "setup_min": 0,
+        "cycle_sec_per_unit": 18,
+        "resource_type": "SHELL_BENCH",
+        "skill": "SHELL",
+        "quality_gate": true,
+        "quality_threshold": null
+      }
+    ],
+    "policy": {
+      "policy_version": "synthetic-branch-policy-1",
+      "full_kit_before_first_operation": true,
+      "workers_per_operation": 1,
+      "first_changeover_min": 1,
+      "same_product_changeover_min": 1,
+      "different_product_changeover_min": 2,
+      "freeze_window_min": 10,
+      "overtime_cost_per_minute": null,
+      "progress_revalidation_enabled": false
+    }
+  },
+  "orders": [
+    {
+      "order_id": "synthetic-order-1",
+      "product_id": "connector-module",
+      "quantity": 20,
+      "due_at": "2026-09-19T01:00:00Z",
+      "priority_weight": 1,
+      "hard_deadline": true,
+      "version": 1,
+      "split_revision": 1,
+      "status": "CONFIRMED"
+    }
+  ],
+  "inventory": [
+    {
+      "material_id": "shell-part",
+      "unit": "EA",
+      "on_hand": 20,
+      "reserved": 0,
+      "version": 1
+    },
+    {
+      "material_id": "contact-part",
+      "unit": "EA",
+      "on_hand": 40,
+      "reserved": 0,
+      "version": 1
+    }
+  ],
+  "receipts": [],
+  "resources": [
+    {
+      "resource_id": "bench-join",
+      "resource_type": "JOIN_BENCH",
+      "operation_codes": [
+        "JOIN"
+      ],
+      "capacity": 1,
+      "status": "AVAILABLE",
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1,
+      "last_operation_id": null,
+      "last_product_id": null
+    },
+    {
+      "resource_id": "bench-kit",
+      "resource_type": "KIT_BENCH",
+      "operation_codes": [
+        "KIT"
+      ],
+      "capacity": 1,
+      "status": "AVAILABLE",
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1,
+      "last_operation_id": null,
+      "last_product_id": null
+    },
+    {
+      "resource_id": "bench-verify",
+      "resource_type": "TEST_BENCH",
+      "operation_codes": [
+        "VERIFY"
+      ],
+      "capacity": 1,
+      "status": "AVAILABLE",
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1,
+      "last_operation_id": null,
+      "last_product_id": null
+    },
+    {
+      "resource_id": "bench-contacts",
+      "resource_type": "CONTACT_BENCH",
+      "operation_codes": [
+        "CONTACTS"
+      ],
+      "capacity": 1,
+      "status": "AVAILABLE",
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1,
+      "last_operation_id": null,
+      "last_product_id": null
+    },
+    {
+      "resource_id": "bench-shell",
+      "resource_type": "SHELL_BENCH",
+      "operation_codes": [
+        "SHELL"
+      ],
+      "capacity": 1,
+      "status": "AVAILABLE",
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1,
+      "last_operation_id": null,
+      "last_product_id": null
+    }
+  ],
+  "workers": [
+    {
+      "worker_id": "person-join",
+      "skills": [
+        "JOIN"
+      ],
+      "status": "AVAILABLE",
+      "overtime_available": false,
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1
+    },
+    {
+      "worker_id": "person-kit",
+      "skills": [
+        "KIT"
+      ],
+      "status": "AVAILABLE",
+      "overtime_available": false,
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1
+    },
+    {
+      "worker_id": "person-verify",
+      "skills": [
+        "TEST"
+      ],
+      "status": "AVAILABLE",
+      "overtime_available": false,
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1
+    },
+    {
+      "worker_id": "person-contacts",
+      "skills": [
+        "CONTACT"
+      ],
+      "status": "AVAILABLE",
+      "overtime_available": false,
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1
+    },
+    {
+      "worker_id": "person-shell",
+      "skills": [
+        "SHELL"
+      ],
+      "status": "AVAILABLE",
+      "overtime_available": false,
+      "calendar": [
+        {
+          "start_at": "2026-09-19T00:00:00Z",
+          "end_at": "2026-09-19T00:20:00Z",
+          "kind": "NORMAL"
+        },
+        {
+          "start_at": "2026-09-19T00:25:00Z",
+          "end_at": "2026-09-19T01:00:00Z",
+          "kind": "NORMAL"
+        }
+      ],
+      "unavailable": [],
+      "version": 1
+    }
+  ],
+  "actuals": [],
+  "reservations": [],
+  "content_hash": "36b85331b6360863aa3bf42224b218273e6bb5d145f7da6c45976601939c6919"
+}

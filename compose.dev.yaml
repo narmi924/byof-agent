@@ -1,0 +1,39 @@
+# Apply after compose.yaml; reuse its private credentials, roles and persistent database.
+x-development-source: &development-source
+  - ./packages:/app/packages:ro
+  - ./services:/app/services:ro
+
+services:
+  api:
+    volumes: *development-source
+    command: ["python", "-m", "uvicorn", "services.api.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "/app/packages", "--reload-dir", "/app/services"]
+    environment:
+      WATCHFILES_FORCE_POLLING: "true"
+
+  factory-sim:
+    volumes: *development-source
+
+  solver-worker:
+    volumes: *development-source
+
+  business-worker:
+    volumes: *development-source
+
+  factory-clock:
+    volumes: *development-source
+
+  web:
+    image: byof-agent-web:development
+    build:
+      target: development
+    environment:
+      BYOF_API_PROXY: http://api:8000
+    volumes:
+      - ./apps/web/src:/app/src:ro
+      - ./apps/web/index.html:/app/index.html:ro
+      - ./apps/web/vite.config.ts:/app/vite.config.ts:ro
+    tmpfs:
+      - /tmp
+      - /app/node_modules/.vite-temp:uid=1000,gid=1000,mode=0700
+    healthcheck:
+      test: ["CMD", "node", "--input-type=module", "-e", "const r = await fetch('http://127.0.0.1:8080/health/ready'); if (!r.ok) process.exit(1)"]
