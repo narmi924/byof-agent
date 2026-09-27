@@ -213,8 +213,20 @@ def test_completed_business_job_without_candidate_wakes_model_with_visible_resul
     )
     wake = WakeSession(source, case, job, operation)
     monkeypatch.setattr(cases, "Session", lambda *args, **kwargs: wake)
+    from packages.planning import business_service
+
+    views = []
+    study_view = business_service.study_view
+
+    def counted_study_view(*args):
+        views.append(args)
+        return study_view(*args)
+
+    monkeypatch.setattr(business_service, "study_view", counted_study_view)
     assert cases.wake_completed_jobs(None) == 1
     assert cases.wake_completed_jobs(None) == 0
+    # A delivered result is not rebuilt on every poll.
+    assert len(views) == 1
     assert case.context["candidate_ids"] == []
     payload = wake.inputs[0].payload
     assert payload["candidate_id"] is None and payload["state"] == "SUCCEEDED"

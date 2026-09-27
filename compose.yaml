@@ -91,9 +91,9 @@ services:
         condition: service_completed_successfully
     healthcheck:
       test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8001/health/ready', timeout=3).close()"]
-      interval: 5s
+      interval: 10s
       timeout: 4s
-      retries: 20
+      retries: 10
       start_period: 10s
     restart: unless-stopped
 
@@ -109,9 +109,9 @@ services:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health/ready', timeout=3).close()"]
-      interval: 5s
+      interval: 10s
       timeout: 4s
-      retries: 20
+      retries: 10
       start_period: 10s
     restart: unless-stopped
 
@@ -125,9 +125,9 @@ services:
         condition: service_completed_successfully
     healthcheck:
       test: ["CMD", "python", "-c", "from sqlalchemy import text; from packages.persistence import connect; from packages.settings import Settings; e=connect(Settings().database_url.get_secret_value()); c=e.connect(); assert c.scalar(text(\"SELECT to_regclass('byof.solve_jobs')\")); c.close(); e.dispose()"]
-      interval: 10s
+      interval: 30s
       timeout: 5s
-      retries: 10
+      retries: 4
       start_period: 10s
     restart: unless-stopped
 
@@ -148,9 +148,9 @@ services:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "from sqlalchemy import text; from packages.persistence import connect; from packages.settings import Settings; e=connect(Settings().database_url.get_secret_value()); c=e.connect(); assert c.scalar(text(\"SELECT to_regclass('byof.agent_runs')\")); c.close(); e.dispose()"]
-      interval: 10s
+      interval: 30s
       timeout: 5s
-      retries: 10
+      retries: 4
       start_period: 10s
     restart: unless-stopped
 
