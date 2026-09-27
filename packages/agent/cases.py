@@ -1020,6 +1020,14 @@ def wake_completed_jobs(engine: Engine) -> int:
                 stopped_at = case.context.get("stopped_at")
                 if stopped_at and operation.created_at <= datetime.fromisoformat(stopped_at):
                     continue
+                key = "solver:" + job.job_id
+                # Check delivery first: the study view below is expensive and this runs every poll.
+                if db.scalar(
+                    select(CaseInput.input_id).where(
+                        CaseInput.factory_id == case.factory_id, CaseInput.input_key == key
+                    )
+                ):
+                    continue
                 study_payload = {}
                 if job.business_request is not None:
                     current_state = db.get(FactoryState, case.factory_id)
@@ -1030,13 +1038,6 @@ def wake_completed_jobs(engine: Engine) -> int:
                         Snapshot.model_validate(current_record.document) if current_record else None
                     )
                     study_payload = {"business_study": study_view(job, current_snapshot)}
-                key = "solver:" + job.job_id
-                if db.scalar(
-                    select(CaseInput.input_id).where(
-                        CaseInput.factory_id == case.factory_id, CaseInput.input_key == key
-                    )
-                ):
-                    continue
                 solved_candidate = (
                     db.get(CandidateRecord, job.candidate_id) if job.candidate_id else None
                 )

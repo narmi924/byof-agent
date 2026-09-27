@@ -5,7 +5,9 @@ COPY --from=uv /uv /usr/local/bin/uv
 WORKDIR /app
 ENV UV_PYTHON_DOWNLOADS=never UV_LINK_MODE=copy
 COPY pyproject.toml uv.lock ./
-RUN uv sync --locked --no-dev --no-install-project --python /usr/local/bin/python
+# Precompile bytecode: the runtime filesystem is read-only, so short-lived processes such as
+# health checks would otherwise recompile every import from source.
+RUN uv sync --locked --no-dev --no-install-project --compile-bytecode --python /usr/local/bin/python
 
 FROM dependencies AS test-dependencies
 RUN uv sync --locked --no-install-project --python /usr/local/bin/python
@@ -22,6 +24,7 @@ COPY scripts/ scripts/
 COPY database/ database/
 COPY data/development/ data/development/
 COPY alembic.ini pyproject.toml uv.lock ./
+RUN python -m compileall -q packages services scripts database
 USER 10001:10001
 CMD ["python", "-m", "uvicorn", "services.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
 

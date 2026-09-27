@@ -1,6 +1,6 @@
 [project]
 name = "byof-agent"
-version = "1.0.0"
+version = "1.0.1"
 description = "BYOF Agent (Bring Your Own Factory Agent): production planning and exception management agent"
 requires-python = ">=3.12,<3.13"
 dependencies = [
