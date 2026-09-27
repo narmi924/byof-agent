@@ -1,4 +1,7 @@
-<h1 align="center">BYOF Agent</h1>
+<p align="center">
+  <img src="docs/assets/byof-lockup-switch.svg" width="420" alt="BYOF — Bring Your Own Factory">
+</p>
+
 
 <p align="center">
   <b>Bring Your Own Factory Agent</b><br>
@@ -26,7 +29,10 @@
   <a href="docs/BYOF_Technical_Document.pdf">Technical document (PDF)</a>
 </p>
 
-![The manager compares response options with the Agent](docs/assets/manager.png)
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=Ul6LUf-bLsM"><img src="https://img.youtube.com/vi/Ul6LUf-bLsM/maxresdefault.jpg" width="560" alt="Watch the BYOF Agent demo video on YouTube"></a><br>
+  <sub><a href="https://www.youtube.com/watch?v=Ul6LUf-bLsM">▶ Watch the demo video on YouTube</a></sub>
+</p>
 
 ## What it is
 
@@ -51,6 +57,8 @@ Two people work side by side, each in a browser window:
 ![System architecture and trust boundaries](docs/assets/architecture.jpg)
 
 More in [Agent architecture](docs/AGENT_ARCHITECTURE.md).
+
+![The manager compares response options with the Agent](docs/assets/manager.png)
 
 ![The disruption simulator creates changes on the shop floor](docs/assets/simulator.png)
 
